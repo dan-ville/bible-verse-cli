@@ -1,5 +1,5 @@
 import requests
-from base_service import BaseService
+from services.base_service import BaseService
 
 class ESVService(BaseService):
     def __init__(self):
