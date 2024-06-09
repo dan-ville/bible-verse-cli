@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 from services.esv_api_service import ESVService
+import pyperclip
 
 def main():
     parser = argparse.ArgumentParser(description="Retrieve Bible verses from the ESV API.")
@@ -17,6 +18,13 @@ def main():
     else:
         # Handle the case where no reference is provided
         print("No reference provided. Please provide a Bible verse reference.")
+    
+    copy_to_clipboard = input("Copy to clipboard? ([Y]/n): ").strip().lower()
+    
+    if copy_to_clipboard == '' or copy_to_clipboard in ['yes', 'y']:
+        pyperclip.copy(verse)
+        print("Copied!")
 
 if __name__ == "__main__":
     main()
+    
